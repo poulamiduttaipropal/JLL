@@ -40062,29 +40062,19 @@ while(num_of_pages!=982):
     print(property_image)
     now = datetime.now()
     timestamp = datetime.timestamp(now)
-    
     if '.jpg' in p:
-      def download_image(url,path):
-        fullname = "https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Pics/" + str(timestamp) + ".jpg"
-        urllib.request.urlretrieve(url,fullname)     
-      download_image(p,'JLL_Pics/')
+      p="https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Picture/" + str(timestamp) + ".jpg"
     elif '.png' in p:
-      def download_image(url,path):
-        fullname = "https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Pics/" + str(timestamp) + ".png"
-        urllib.request.urlretrieve(url,fullname)     
-      download_image(p,'JLL_Pics/')
+      p="https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Picture/" + str(timestamp) + ".png"
     elif '.gif' in p:
-      def download_image(url,path):
-        fullname = "https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Pics/" + str(timestamp) + ".gif"
-        urllib.request.urlretrieve(url,fullname)     
-      download_image(p,'JLL_Pics/')
+      p="https://s3.eu-central-1.amazonaws.com/jllpics/JLL_Picture/" + str(timestamp) + ".gif"
     else:
-      fullname="https://www.google.com/search?q=no+property+available&source=lnms&tbm=isch&sa=X&ved=0ahUKEwix1vG6ys_iAhUMsI8KHdfSAUgQ_AUIESgC&biw=1920&bih=900#imgrc=JkFv-OSJ4U1NfM:"
+      p="https://www.google.com/search?q=no+property+available&source=lnms&tbm=isch&sa=X&ved=0ahUKEwix1vG6ys_iAhUMsI8KHdfSAUgQ_AUIESgC&biw=1920&bih=900#imgrc=JkFv-OSJ4U1NfM:"
 
-    dict = {"title": title,"area":area,"area_unit": area_unit,"address":address,"building_name":building_name,"city": city, "country": country, "description": description, "expected_rent": expected_rent,"floor_count":floor_count,"property_images": [fullname], "landmark": landmark,"latitude":latitude,"longitude":longitude,"pincode":pincode,"street":street}
+    dict = {"title": title,"area":area,"area_unit": area_unit,"address":address,"building_name":building_name,"city": city, "country": country, "description": description, "expected_rent": expected_rent,"floor_count":floor_count,"property_images": [p], "landmark": landmark,"latitude":latitude,"longitude":longitude,"pincode":pincode,"street":street}
     print(dict)
     num_of_pages=num_of_pages+1
-    with open('/home/ubuntu/data/Jll_Scrapped_Data.json', 'a') as file:
+    with open('/home/poulami/Project/data/Jll_Data.json', 'a') as file:
         file.write(json.dumps(dict))
 
 
